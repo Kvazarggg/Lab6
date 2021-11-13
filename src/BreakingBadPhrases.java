@@ -1,24 +1,20 @@
 public class BreakingBadPhrases {
-    //static final long serialVersionUID = 454564564564564L;
     private int quoteId;
     private String quote;
     private String author;
     private String series;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public BreakingBadPhrases() {
     }
 
     /**
      *
-     * @param quote
-     * @param author
-     * @param series
-     * @param quoteId
+     * @param quote текст фразы
+     * @param author автор фразы
+     * @param series название сериала
+     * @param quoteId id цитаты
      */
+
     public BreakingBadPhrases(int quoteId, String quote, String author, String series) {
         super();
         this.quoteId = quoteId;
