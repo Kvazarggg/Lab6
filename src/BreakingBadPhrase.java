@@ -1,10 +1,12 @@
-public class BreakingBadPhrases {
+import java.util.Comparator;
+
+public class BreakingBadPhrase {
     private int quoteId;
     private String quote;
     private String author;
     private String series;
 
-    public BreakingBadPhrases() {
+    public BreakingBadPhrase() {
     }
 
     /**
@@ -15,7 +17,7 @@ public class BreakingBadPhrases {
      * @param quoteId id цитаты
      */
 
-    public BreakingBadPhrases(int quoteId, String quote, String author, String series) {
+    public BreakingBadPhrase(int quoteId, String quote, String author, String series) {
         super();
         this.quoteId = quoteId;
         this.quote = quote;
@@ -64,4 +66,10 @@ public class BreakingBadPhrases {
                 ", series='" + series + '\'' +
                 '}';
     }
+
+    public static Comparator<BreakingBadPhrase> byAuthorAsc = Comparator.comparing(o -> o.author);
+    public static Comparator<BreakingBadPhrase> byAuthorDesc = (o1, o2) -> o2.author.compareTo(o1.author);
+    public static Comparator<BreakingBadPhrase> byQuoteIDAsc = (o1, o2) -> o1.quoteId > o2.quoteId ? 1 : o1.quoteId < o2.quoteId ? -1 : 0;
+    public static Comparator<BreakingBadPhrase> byQuoteIDDesc = (o1, o2) -> o1.quoteId < o2.quoteId ? 1 : o1.quoteId > o2.quoteId ? -1 : 0;
+
 }

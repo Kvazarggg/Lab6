@@ -34,11 +34,21 @@ public class Main_lab6 {
             String quote = (String) current.get("quote");
             String author = (String) current.get("author");
             String series = (String) current.get("series");
-            BreakingBadPhrases bbp = new BreakingBadPhrases(quoteId, quote, author, series);
+            BreakingBadPhrase bbp = new BreakingBadPhrase(quoteId, quote, author, series);
             phrases.add(bbp);
         }
 
         System.out.println("Imported data after parsing:\n" + phrases);
         System.out.println(phrases);
+
+        phrases.getPhrases().sort(BreakingBadPhrase.byAuthorAsc);
+        System.out.println("After sorting by author ascending:\n" + phrases);
+        phrases.getPhrases().sort(BreakingBadPhrase.byAuthorDesc);
+        System.out.println("After sorting by author descending:\n" + phrases);
+
+        phrases.getPhrases().sort(BreakingBadPhrase.byQuoteIDAsc);
+        System.out.println("After sorting by quote ID ascending:\n" + phrases);
+        phrases.getPhrases().sort(BreakingBadPhrase.byQuoteIDDesc);
+        System.out.println("After sorting by quote ID descending:\n" + phrases);
     }
 }
