@@ -23,14 +23,14 @@ public class Main_lab6 {
         System.out.println();
 
         JSONArray jsonArray = (JSONArray) obj;
-        System.out.println(jsonArray.toJSONString());
+        //System.out.println(jsonArray.toJSONString());
         System.out.println();
 
         Phrases phrases = new Phrases();
 
         for (Object jsonObject : jsonArray) {
             JSONObject current = (JSONObject) jsonObject;
-            int quoteId = Integer.parseInt( String.valueOf(current.get("quote_id")));
+            int quoteId = Integer.parseInt(String.valueOf(current.get("quote_id")));
             String quote = (String) current.get("quote");
             String author = (String) current.get("author");
             String series = (String) current.get("series");
@@ -50,5 +50,8 @@ public class Main_lab6 {
         System.out.println("After sorting by quote ID ascending:\n" + phrases);
         phrases.getPhrases().sort(BreakingBadPhrase.byQuoteIDDesc);
         System.out.println("After sorting by quote ID descending:\n" + phrases);
+
+        Phrases withWalterWhite = phrases.filterByAuthor("Walter White");
+        System.out.println("Walter White phrases:\n" + withWalterWhite);
     }
 }

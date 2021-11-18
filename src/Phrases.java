@@ -20,8 +20,17 @@ public class Phrases {
         phrases = new ArrayList<>();
     }
 
-    public void add(BreakingBadPhrase bbp){
+    public void add(BreakingBadPhrase bbp) {
         this.phrases.add(bbp);
+    }
+
+    public Phrases filterByAuthor(String str) {
+        Phrases tempObj = new Phrases();
+        for (BreakingBadPhrase phrase : this.phrases) {
+            if (phrase.getAuthor().toLowerCase().contains(str.toLowerCase()))
+                tempObj.add(phrase);
+        }
+        return tempObj;
     }
 
     @Override
