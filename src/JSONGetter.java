@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Timer;
 
 public class JSONGetter extends Thread {
     public String jsonIn;
@@ -14,6 +15,8 @@ public class JSONGetter extends Thread {
         }
         return sb.toString();
     }
+
+    Timer timer = new Timer();
 
     public String ConnectAndGetData() {
         jsonIn = "";
@@ -41,6 +44,9 @@ public class JSONGetter extends Thread {
         return jsonIn;
     }
 
+    public void parseData(){
+
+    }
     @Override
     public void run() {
         ConnectAndGetData();
